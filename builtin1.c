@@ -2,10 +2,10 @@
 
 /**
  * _myhistory - displays the history list, one command by line, preceded
- *		with line numbers, starting at 0.
+ *              with line numbers, starting at 0.
  * @info: Structure containing potential arguments. Used to maintain
- *		constant function prototype.
- * Return: Always 0
+ *        constant function prototype.
+ *  Return: Always 0
  */
 int _myhistory(info_t *info)
 {
@@ -32,7 +32,7 @@ int unset_alias(info_t *info, char *str)
 	*p = 0;
 	ret = delete_node_at_index(&(info->alias),
 		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
-	p = c;
+	*p = c;
 	return (ret);
 }
 
@@ -72,10 +72,10 @@ int print_alias(list_t *node)
 		p = _strchr(node->str, '=');
 		for (a = node->str; a <= p; a++)
 			_putchar(*a);
-			_putchar('\'');
-			_puts(p + 1);
-			_puts("'\n");
-			return (0);
+		_putchar('\'');
+		_puts(p + 1);
+		_puts("'\n");
+		return (0);
 	}
 	return (1);
 }
@@ -83,8 +83,8 @@ int print_alias(list_t *node)
 /**
  * _myalias - mimics the alias builtin (man alias)
  * @info: Structure containing potential arguments. Used to maintain
- *		constant function prototype.
- * Return: Always 0
+ *          constant function prototype.
+ *  Return: Always 0
  */
 int _myalias(info_t *info)
 {
